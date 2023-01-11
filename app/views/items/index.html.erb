@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row justify-content-center">
+      <% @item.each do |i| %>
+        <div class="col-md-4">
+            <div class="card m-3">
+                <div class="card-body">
+                    <h5 class="card-title"><%= i.name %></h5>
+                    <p class="card-text">Price: <%= i.price %></p>
+                    <p class="card-text">Description: <%= i.description %></p>
+                    <%= link_to "View item", item_path(i), class: "btn btn-primary" %>
+                </div>
+            </div>
+        </div>
+      <% end %>
+<%= link_to "Home", root_path, class: "btn btn-primary" %>
+    </div>
+</div>

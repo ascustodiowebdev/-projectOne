@@ -1,6 +1,7 @@
-<!-- app/views/restaurants/index.html.erb -->
-<ul>
-  <% @item.each do |i| %>
-    <li><%= link_to item.name, item_path(item) %></li>
-  <% end %>
-</ul>
+<div class="container">
+  <p><% @item.name %></p>
+  <p><% @item.description %></p>
+  <p><% @item.price %></p>
+</div>
+<%= link_to("items",items_path) %>
+<%= link_to "Home", root_path, class: "btn btn-primary" %>

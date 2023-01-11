@@ -6,13 +6,23 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    if @item.save
+      flash[:notice] = "Item was successfully created."
+      redirect_to items_path
+    else
+      flash[:alert] = "Item could not be created. Please try again."
+      render :new
+    end
   end
 
-  def show
+  def index
     @item = Item.all
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+  
   private
 
   def item_params
