@@ -9,4 +9,5 @@
   <%= link_to("Home", root_path, class: "btn btn-primary") %>
   <%= button_to "Destroy this item", @item, :class=>"btn btn-warning btn-rounded btn-show  ", method: :delete if @user&.admin == true %>
   <%= link_to("Edit this item", edit_item_path, class: "btn btn-primary") if @user&.admin == true %>
+    <%= link_to("Add to cart", new_cart_path, class: "btn btn-primary") if @user.admin == false %>
 </div>
