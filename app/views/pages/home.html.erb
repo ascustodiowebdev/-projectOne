@@ -1,4 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to("new item",new_item_path) %>
-<%= link_to("items",items_path) %>
+<% @user = current_user %>
+<div class="content-center">
+    <h1>Bem-vindo á uSticker</h1>
+    <p>Veja a nossa loja e encontre os autocolantes com que sempre sonhou, ou o caralho.</p>
+    <div class="text-center">
+      <%= link_to "Browse Items", items_path, class: "btn btn-secondary" %>
+      <%= link_to "New Item", new_item_path, class: "btn btn-primary" if @user&.admin == true %>
+    </div>
+</div>
