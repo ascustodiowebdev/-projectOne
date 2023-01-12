@@ -1,7 +1,11 @@
-<div class="container">
-  <p><% @item.name %></p>
-  <p><% @item.description %></p>
-  <p><% @item.price %></p>
+<% @user = current_user %>
+<div class="content-center">
+  <ul>
+    <li><%= @item.name %></li>
+    <li><%= @item.description %></li>
+    <li><%= @item.price %></li>
+  </ul>
+  <%= link_to("items",items_path, class: "btn btn-primary") %>
+  <%= link_to("Home", root_path, class: "btn btn-primary") %>
+  <%= link_to("Edit this item", edit_item_path, class: "btn btn-primary") if @user&.admin == true %>
 </div>
-<%= link_to("items",items_path) %>
-<%= link_to "Home", root_path, class: "btn btn-primary" %>
