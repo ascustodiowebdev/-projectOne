@@ -1,4 +1,4 @@
 class Cart < ApplicationRecord
-  belongs_to :user
-  has_many :items
+  validates :quantity, numericality: { greater_than: 0 }
+  validates :price, presence: true
 end
