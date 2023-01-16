@@ -15,19 +15,12 @@ class CartController < ApplicationController
     end
   end
 
-  # def create
-  #   p params
-  #   @cart = Cart.new(cart_params)
-  #   @cart.save
-  #   if @cart.save
-  #     redirect_to items_path
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
   def index
-    @cart = Cart.last
+    @cart = Cart.find(current_user.id)
+    @item = Item.find(@cart.item_id)
   end
+
+  
   # private
 
   # def cart_params
