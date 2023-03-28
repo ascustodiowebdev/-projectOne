@@ -1,6 +1,13 @@
 <h1>Cart</h1>
-<p>Item name: <%= @item.name %></p>
-<p>Quantity: <%= @cart.quantity %></p>
-<p>Price: <%= @cart.price %></p>
-<p>Total cost: <%= @cart.quantity * @cart.price %></p>
-  <%= link_to("back to items",items_path, class: "btn btn-primary") %>
+<% if @cart.item_id.present? %>
+  <% @cart.item_id.each do |item_id| %>
+    <% item = Item.find(item_id) %>
+    <p>Item name: <%= item.name %></p>
+    <p>Price: <%= item.price %></p>
+<% raise %>
+  <% end %>
+<% else %>
+  <p>Your cart is empty</p>
+<% end %>
+<%= link_to("Back to items", items_path, class: "btn btn-primary") %>
+<%= button_to "Remove from cart", @cart, class: "btn btn-warning btn-rounded btn-show", method: :delete %>
